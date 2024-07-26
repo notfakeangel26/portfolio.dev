@@ -41,16 +41,20 @@ const PROJECTS = [
         link: "https://flexpal.netlify.app/",
         github: "https://github.com/orgs/ProjectDev26/repositories",
         image: "/svgl.webp",
-       tags: [TAGS.SPRING, TAGS.ANGULAR, TAGS.MYSQL, TAGS.JAVA, TAGS.TYPESCRIPT],
+        tags: [TAGS.SPRING, TAGS.ANGULAR, TAGS.MYSQL, TAGS.JAVA, TAGS.TYPESCRIPT],
     },
 ];
 ---
 
 {
-    PROJECTS.map(({ image, title, description, tags }) => (
+    PROJECTS.map(({ image, title, description, tags, link }) => (
         <article>
-            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <a href={link} target="_blank">
+                <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            </a>
+            <a href={link} target="_blank">
+                <p class="text-lg mb-4 text-pretty">{description}</p>
+            </a>
             <ul class="flex gap-x-2 flex-row mb-6">
                 {tags.map((tag) => (
                     <li>
@@ -61,11 +65,13 @@ const PROJECTS = [
                     </li>
                 ))}
             </ul>
-            <img
+            <a href={link} target="_blank">
+                <img
                 class="rounded shadow-2xl shadow-white/10"
                 src={image}
                 alt={title}
             />
+            </a>
         </article>
     ))
 }
